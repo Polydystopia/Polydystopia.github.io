@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Server Status Checker</title>
+</head>
+<body>
+	<h1>Check Server Status</h1>
+	<div id="status">Checking...</div>
+
+	<script>
+		fetch('https://polydystopia.xyz') // replace with your actual endpoint
+			.then(response => {
+				if (response.ok) {
+					document.getElementById('status').innerText = 'Server is up';
+				} else {
+					document.getElementById('status').innerText = 'Server reported error';
+				}
+			})
+			.catch(err => {
+				document.getElementById('status').innerText = 'Server is down';
+			});
+	</script>
+</body>
+</html>
